@@ -1,0 +1,7 @@
+﻿  KinectProject.cpp
+c:\program files\microsoft sdks\mymyo\include\myo\cxx\detail\throwonerror.hpp(39): warning C4297: 'myo::ThrowOnError::~ThrowOnError': function assumed not to throw an exception but does
+  c:\program files\microsoft sdks\mymyo\include\myo\cxx\detail\throwonerror.hpp(39): note: destructor or deallocator has a (possibly implicit) non-throwing exception specification
+c:\program files\microsoft sdks\mymyo\include\myo\cxx\detail\throwonerror.hpp(45): warning C4297: 'myo::ThrowOnError::~ThrowOnError': function assumed not to throw an exception but does
+  c:\program files\microsoft sdks\mymyo\include\myo\cxx\detail\throwonerror.hpp(45): note: destructor or deallocator has a (possibly implicit) non-throwing exception specification
+  KinectProject.vcxproj -> C:\Users\aamin\documents\visual studio 2015\Projects\KinectProject\x64\Debug\KinectProject.exe
+  KinectProject.vcxproj -> C:\Users\aamin\documents\visual studio 2015\Projects\KinectProject\x64\Debug\KinectProject.pdb (Full PDB)
