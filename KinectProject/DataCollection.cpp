@@ -36,24 +36,6 @@ public:
 
 	void openFiles() {
 		time_t timestamp = std::time(0);
-		//uint64_t TimeStamp_MilliSeconds = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
-
-
-
-
-
-
-		/*
-		std::chrono::microseconds TimeStamp;
-
-		TimeStamp = std::chrono::duration_cast <std::chrono::microseconds>(std::chrono::system_clock::now().time_since_epoch());
-		*/
-
-		/*using namespace std::chrono;
-
-		milliseconds TimeStamp;
-		TimeStamp = duration_cast <milliseconds>(system_clock::now().time_since_epoch());
-		*/
 
 
 		// Open file for EMG log
@@ -351,7 +333,7 @@ int main(int argc, char** argv)
 {
 
 	// We catch any exceptions that might occur below -- see the catch statement for more details.
-	/*
+	
 	try {
 
 		// First, we create a Hub with our application identifier. Be sure not to use the com.example namespace when
@@ -376,7 +358,7 @@ int main(int argc, char** argv)
 
 		// Next we enable EMG streaming on the found Myo.
 		myo->setStreamEmg(myo::Myo::streamEmgEnabled);
-		*/
+		
 		// Next we construct an instance of our DeviceListener, so that we can register it with the Hub.
 	DataCollector collector;
 
@@ -397,7 +379,7 @@ int main(int argc, char** argv)
 		{
 			// In each iteration of our main loop, we run the Myo event loop for a set number of milliseconds.
 			// In this case, we wish to update our display 50 times a second, so we run for 1000/20 milliseconds.
-			//hub.run(1);
+			hub.run(1);
 
 
 			//Kinect Part
@@ -409,8 +391,8 @@ int main(int argc, char** argv)
 			return EXIT_SUCCESS;
 		}
 	}
-	/*
-	// If a standard exception occurred, we print out its message and exit.
+	
+	 //If a standard exception occurred, we print out its message and exit.
 }
 catch (const std::exception& e) {
 	std::cerr << "Error: " << e.what() << std::endl;
@@ -418,5 +400,5 @@ catch (const std::exception& e) {
 	std::cin.ignore();
 	return 1;
 }
-*/
+
 }
