@@ -92,7 +92,7 @@ public:
 		std::ostringstream KienctRightHandFileString;
 		KienctRightHandFileString << "KinectHandsData" << ".csv";
 		KienctRightHandFile.open(KienctRightHandFileString.str(), std::ios::out);
-		KienctRightHandFile << "timestamp,RH X ,RH Y,RH Z,RS X, RS Y,RS Z,RE X,RE Y,RE Z,RW X,RW Y,RW Z" << std::endl;
+		KienctRightHandFile << "timestamp,RH X ,RH Y,RH Z,RS X, RS Y,RS Z,RE X,RE Y,RE Z,RW X,RW Y,RW Z,LS X,LS Y,LS Z,LC X,LC Y,LC Z" << std::endl;
 
 
 
@@ -284,6 +284,16 @@ public:
 					KienctRightHandFile << ',' << ourframe.SkeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].y;
 					KienctRightHandFile << ',' << ourframe.SkeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_WRIST_RIGHT].z;
 
+					//Left Shoulder 
+					KienctRightHandFile << ',' << ourframe.SkeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_LEFT].x;
+					KienctRightHandFile << ',' << ourframe.SkeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_LEFT].y;
+					KienctRightHandFile << ',' << ourframe.SkeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_LEFT].z;
+
+					//Right Wirst 
+					KienctRightHandFile << ',' << ourframe.SkeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_CENTER].x;
+					KienctRightHandFile << ',' << ourframe.SkeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_CENTER].y;
+					KienctRightHandFile << ',' << ourframe.SkeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_SHOULDER_CENTER].z;
+
 
 					std::cout << (ourframe.SkeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_HAND_RIGHT].y) << std::endl;
 					std::cout << (PreviousFrame.SkeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_HAND_RIGHT].y) << std::endl;
@@ -364,7 +374,7 @@ int main(int argc, char** argv)
 
 	// Hub::addListener() takes the address of any object whose class inherits from DeviceListener, and will cause
 	// Hub::run() to send events to all registered device listeners.
-	//hub.addListener(&collector);
+	hub.addListener(&collector);
 
 
 	/******************************		Kinect init			************************************/
