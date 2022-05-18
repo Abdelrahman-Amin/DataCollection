@@ -2,6 +2,7 @@
 // Distributed under the Myo SDK license agreement. See LICENSE.txt for details.
 
 // This sample illustrates how to log EMG and IMU data. EMG streaming is only supported for one Myo at a time, and this entire sample is geared to one armband
+// This is a C++ file
 
 #define _USE_MATH_DEFINES
 #include "DataCollection.h"
@@ -243,7 +244,8 @@ public:
 
 		time_t FrameTimeStamp_MilliSeconds;
 
-		static bool IsMovementStopped = false;
+		static bool IsMovementStopped	= false;
+		static bool FirstTimeSound		= true;
 
 
 		NuiSkeletonGetNextFrame(0, &ourframe); //Get a frame and stuff it into ourframe
@@ -253,7 +255,13 @@ public:
 			{
 				if (ourframe.SkeletonData[i].SkeletonPositions[NUI_SKELETON_POSITION_HAND_RIGHT].x != 0)
 				{
-					std::cout << "****************************************************** Started Logging Kinect Data*************************************************" << std::endl;
+					if (FirstTimeSound == true)
+					{
+						std::cout << "****************************************************** Started Logging Kinect Data*************************************************" << std::endl;
+						Beep(523, 500);
+						FirstTimeSound = false;
+					}
+
 					//Get Timestamp of frame
 					//time_t FrameTimeStamp_MilliSeconds = std::time(0);
 					FrameTimeStamp_MilliSeconds = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
